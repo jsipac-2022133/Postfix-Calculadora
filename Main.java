@@ -4,14 +4,14 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) {
-        CalculadoraPostfix calculadora = new CalculadoraPostfix();
+
+        Calculadora calculadora = new CalculadoraPostfix();
 
         try {
             Scanner archivo = new Scanner(new File("datos.txt"));
             int numeroLinea = 1;
 
-            System.out.println("---Claculadora Postfix---");
-            System.out.println("");
+            System.out.println("--- Calculadora Postfix ---\n");
 
             while (archivo.hasNextLine()) {
                 String linea = archivo.nextLine().trim();
@@ -19,6 +19,7 @@ public class Main {
                 if (linea.isEmpty()) {
                     continue;
                 }
+
                 System.out.print("Expresión " + numeroLinea + ": " + linea + " = ");
 
                 try {
@@ -27,6 +28,7 @@ public class Main {
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
+
                 numeroLinea++;
             }
 
