@@ -1,4 +1,3 @@
-package src;
 interface Pila<T> {
     void push(T elemento);
 
