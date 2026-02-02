@@ -1,3 +1,5 @@
+package src;
+
 public class CalculadoraPostfix implements Calculadora {
 
     private Pila<Integer> pila;
@@ -45,8 +47,11 @@ public class CalculadoraPostfix implements Calculadora {
 
     @Override
     public int evaluar(String expresion) {
+        if (expresion == null || expresion.trim().isEmpty()) {
+            throw new IllegalArgumentException("La expresión no puede estar vacía");
+        }
         String[] componentes = expresion.split(" ");
-
+        
         for (String componente : componentes) {
             if (esNumero(componente)) {
                 pila.push(Integer.parseInt(componente));
